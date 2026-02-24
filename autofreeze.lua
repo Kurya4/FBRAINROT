@@ -1,7 +1,7 @@
 local placeId=game.PlaceId
 local jobId=game.JobId
 local player=game.Players.LocalPlayer
-local targetPlaceId=96342491571673
+local targetPlaceId=109983668079237
 local targetJobId="w"
 local seuilTeleport=35000000
 local seuilAffichage=500000
